@@ -1,0 +1,30 @@
+
+.hightlight{
+
+	border: 1px solid black ;
+	background-color: green ;
+	color: black ;
+}
+
+.page-header h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.highlight{
+	background-color: green ;
+}
+
+
+
+#lists {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#lists li {
+  padding: 20px 20px;
+  border-bottom: 1px solid #EEEEEE;
+  clear: both;
+}
