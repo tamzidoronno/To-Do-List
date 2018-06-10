@@ -1,31 +1,7 @@
 $(document).ready(function() {
 
-	
-	function action( varaibale ,element)
-	{
-
-		
-		var txt = element.text() ;
-		alert(txt) ;
-
-		if (varaibale=="Edit")
-		{
-
-		}
-		else if (varaibale=="Delete")
-		{
-
-		}
-		else if(varaibale =="Complete")
-		{
-
-		}
-		else if (varaibale =="Incomplete")
-		{
-
-		}
-	}
-
+	 top.completed =0   ;
+	top.inCompleted =0 ;
 
 	$('#addList').click(function(event) {
 
@@ -34,7 +10,7 @@ $(document).ready(function() {
 		//alert(counter) ;
 
 		$('#lists').append('<li class="list-group-item" id="li_'+counter+' ">'+ todo +' </li> ')
-		.append('<span id ="link"><a  href="#" class="badge badge-primary" id= a_'+counter+ '>Edit</a><a href="#" id= a_'+counter+ ' class="badge badge-danger">Delete</a><a id= a_'+counter+ ' href="#" class="badge badge-success">Complete</a><a id= a_'+counter+ ' href="#" class="badge badge-warning">Incomplete</a></span>')
+		.append('<span id ="link_'+counter+'"><a  href="#" class="badge badge-primary" id= a_'+counter+ '>Edit</a><a href="#" id= a_'+counter+ ' class="badge badge-danger">Delete</a><a id= a_'+counter+ ' href="#" class="badge badge-success">Complete</a><a id= a_'+counter+ ' href="#" class="badge badge-warning">Incomplete</a></span>')
 		.css('padding', '10px') ;
 
 		$('#lists').next().css('color', 'red');
@@ -47,7 +23,9 @@ $(document).ready(function() {
 			/* Act on the event */
 
 			var varaibale = $(this).text() ;
-			var this_sel  ;
+			var GrandParent  ;
+			var parentID ;
+			var child  = $(this);
 			var id =$( this).attr('id').split("_")[1]  ;
 
 
@@ -57,12 +35,23 @@ $(document).ready(function() {
 
 				if ( newID== counter  )
 				{
-					this_sel = $(this) ;
+					GrandParent = $(this) ;
 				}
 
 			});
 
-			action(varaibale,this_sel) ;
+			$( "span" ).each(function( index ) {
+				
+				var newID = $( this ).attr('id').split("_")[1] ;
+
+				if ( newID== counter  )
+				{
+					parentID = $(this) ;
+				}
+
+			});
+
+			action(varaibale,GrandParent,parentID,child) ;
 
 		});
 		
