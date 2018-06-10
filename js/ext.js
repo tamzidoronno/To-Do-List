@@ -4,9 +4,9 @@ $(document).ready(function() {
 	function action( varaibale ,element)
 	{
 
-		alert(varaibale) ;
-		var txt = $(element).text() ;
-
+		
+		var txt = element.text() ;
+		alert(txt) ;
 
 		if (varaibale=="Edit")
 		{
@@ -31,10 +31,10 @@ $(document).ready(function() {
 
 		var todo = $('#text').val() ;
 		var counter = $('li').last().index() ;
-		alert(counter) ;
+		//alert(counter) ;
 
-		$('#lists').append('<li class="list-group-item" id="li'+counter+' ">'+ todo +' </li> ')
-		.append('<span id ="link"><a  href="#" class="badge badge-primary" id= a'+counter+ '>Edit </a><a href="#" id= a'+counter+ ' class="badge badge-danger">Delete </a><a id= a'+counter+ ' href="#" class="badge badge-success">Complete </a><a id= a'+counter+ ' href="#" class="badge badge-warning">Incomplete</a></span>')
+		$('#lists').append('<li class="list-group-item" id="li_'+counter+' ">'+ todo +' </li> ')
+		.append('<span id ="link"><a  href="#" class="badge badge-primary" id= a_'+counter+ '>Edit</a><a href="#" id= a_'+counter+ ' class="badge badge-danger">Delete</a><a id= a_'+counter+ ' href="#" class="badge badge-success">Complete</a><a id= a_'+counter+ ' href="#" class="badge badge-warning">Incomplete</a></span>')
 		.css('padding', '10px') ;
 
 		$('#lists').next().css('color', 'red');
@@ -42,22 +42,37 @@ $(document).ready(function() {
 
 		//Run Time Events Initialization
 
-		$('#lists').on('click', '#a'+counter+'', function(event) {
+		$('#lists').on('click', '#a_'+counter+'', function(event) {
 			event.preventDefault();
 			/* Act on the event */
-			
-			var element = $('#li'+counter+'') ;
-			var varaibale  = $(this).text() ;
 
-			action(varaibale,element) ;
+			var varaibale = $(this).text() ;
+			var this_sel  ;
+			var id =$( this).attr('id').split("_")[1]  ;
+
+
+			$( "li" ).each(function( index ) {
+				
+				var newID = $( this ).attr('id').split("_")[1] ;
+
+				if ( newID== counter  )
+				{
+					this_sel = $(this) ;
+				}
+
+			});
+
+			action(varaibale,this_sel) ;
 
 		});
-
+		
 		
 	}).focusout(function(event) {
 
 		$('#text').val('') ;
 
 	});
+
+
 
 });
