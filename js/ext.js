@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	 top.completed =0   ;
 	top.inCompleted =0 ;
-
+	
 	$('#addList').click(function(event) {
 
 		var todo = $('#text').val() ;
