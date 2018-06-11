@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To Do</title>
+  <link rel="stylesheet" href="css/style.css">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anobnymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous">
+  </script>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <div class = "row">
+      <div class = "col-sm-12">
+        <div class="page-header">
+          <h1>Todo List</h1>
+          <form class="form-horizontal">
+            <div class="form-group">
+
+              <input type="text" class="form-control" id="new-task" placeholder="Add your To Do ">
+              
+            </div>
+            <div class="form-group " >
+              <div class="col-md-12 text-center" >
+
+                <input type="button"  value="Add Task" id="add-button" class=" btn btn-success " >
+
+              </div>
+            </div>
+          </form>
+        </div>
+
+              <ul id="incomplete-tasks" class="list-group" style="background-color: #ffafaf"></ul>
+             <ul id="completed-tasks" class="list-group" style="background-color: #82c582"></ul>
+
+        </ul>
+
+      </div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content" style="width: 50%;margin-left: 25%;">
+        <br>
+        <input type="text" id="edittext"><br>
+        <button type="button" id ="update" class="btn btn-primary">Update</button>
+        <button type="button" id ="cancel" class="btn btn-default">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/new.js"></script>
+
+</body>
+</html>
